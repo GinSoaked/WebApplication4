@@ -16,5 +16,5 @@ services:
       - app
     restart: always
     environment:
-      DOMAINS: 'seaweed.smashedcrab.dev -> http://app:5000'
+      DOMAINS: 'seaweed.smashedcrab.dev -> http://app:443'
       STAGE: 'production'

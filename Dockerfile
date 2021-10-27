@@ -16,6 +16,10 @@ RUN dotnet build "WebApplication4.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "WebApplication4.csproj" -c Release -o /app/publish
 
+
+ENV ASPNETCORE_URLS http://+:443
+EXPOSE 443
+
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
