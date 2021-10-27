@@ -2,9 +2,7 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
-EXPOSE 5000
+
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
@@ -18,7 +16,8 @@ FROM build AS publish
 RUN dotnet publish "WebApplication4.csproj" -c Release -o /app/publish
 
 
-ENV ASPNETCORE_URLS http://app:5000
+ENV ASPNETCORE_URLS http://+:5000
+EXPOSE 5000
 
 FROM base AS final
 WORKDIR /app
