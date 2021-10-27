@@ -17,8 +17,7 @@ FROM build AS publish
 RUN dotnet publish "WebApplication4.csproj" -c Release -o /app/publish
 
 
-ENV ASPNETCORE_URLS http://+:443
-EXPOSE 443
+ENV ASPNETCORE_URLS http://app:500
 
 FROM base AS final
 WORKDIR /app
